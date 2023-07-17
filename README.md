@@ -1,2 +1,2 @@
 # JavaScript
-My learn progression in JavaScript
+My JavaScript Learning Progression
