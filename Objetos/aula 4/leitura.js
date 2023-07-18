@@ -10,4 +10,4 @@ console.log(typeof clienteEmString); */
 
 const converterEmJSON = JSON.parse(clienteEmString); // converte string em json
 
-console.log(converterEmJSON); 
+console.log(converterEmJSON)
