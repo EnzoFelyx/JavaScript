@@ -1,9 +1,24 @@
 //const chalk = require('chalk'); forma legado de importar 
+//console.log (chalk.blue('hello world'))
 
-import chalk from "chalk"; //forma atual
+import chalk from "chalk"; //forma atual "import"
+import fs from 'fs';
 
-console.log (chalk.blue('hello world'))
+function fixError (badnews) {
+    console.log(badnews);
+    throw new Error(chalk.red(badnews.code, 'There is no file in this directory'));
+}
 
-console.log('olá mundos');
-console.log('São geralmente recuperados a partir de um objeto [FileList](https://developer.mozilla.org/pt-BR/docs/Web/API/FileList) que é retornado como resultado da seleção, pelo usuário, de arquivos através do elemento [<input>](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Input), a partir do objeto [DataTransfer](https://developer.mozilla.org/pt-BR/docs/Web/API/DataTransfer) utilizado em operações de arrastar e soltar, ou a partir da API `mozGetAsFile()` em um [HTMLCanvasElement](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLCanvasElement). Em Gecko, códigos com privilégiios podem criar objetos File representando qualquer arquivo local sem a intereção do usuário (veja [Implementation notes](https://developer.mozilla.org/pt-BR/docs/Web/API/File#implementation_notes) para mais informações.).');
-console.log('São geralmente recuperados a partir de um objeto [FileList](https://developer.mozilla.org/pt-BR/docs/Web/API/FileList) que é retornado como resultado da seleção, pelo usuário, de arquivos através do elemento [<input>](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Input), a partir do objeto [DataTransfer](https://developer.mozilla.org/pt-BR/docs/Web/API/DataTransfer) utilizado em operações de arrastar e soltar, ou a partir da API `mozGetAsFile()` em um [HTMLCanvasElement](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLCanvasElement). Em Gecko, códigos com privilégiios podem criar objetos File representando qualquer arquivo local sem a intereção do usuário (veja [Implementation notes](https://developer.mozilla.org/pt-BR/docs/Web/API/File#implementation_notes) para mais informações.).');
+function takeFile(fileAdress) {
+    const encoding = 'utf-8';
+    fs.readFile(fileAdress, encoding, (badnews, texto) => {
+        if(badnews) {
+            fixError(badnews);
+        }
+        console.log(chalk.green(texto))
+    })
+}
+
+//takeFile('./arquivos/texto.md');
+takeFile('../../../test.txt');
+
