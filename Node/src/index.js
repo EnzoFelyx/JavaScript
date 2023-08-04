@@ -51,13 +51,11 @@ async function finalTakeFile(fileAdress) {
     try {
         const encoding = 'utf-8';
         const text = await fs.promises.readFile(fileAdress, encoding)
-        console.log(extractLinks(text));
+        return extractLinks(text)
     } catch (badnews) {
         fixError(badnews)
     }
 }
-
-finalTakeFile('./arquivos/texto.md');
 
 
 function extractLinks(text) {
@@ -65,6 +63,7 @@ function extractLinks(text) {
     const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
     const capture = [...text.matchAll(regex)];
     const results = capture.map(capture => ({ [capture[1]]: [capture[2]] }))
-    return results;
+    return results.length !== 0 ? results : 'No link found';
 }
 
+export default finalTakeFile;
