@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "title": "json-server",
+      "author": "Enzo Felix dos Santos"
+    },
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "Henrique da Graça Dio"
+    },
+    {
+      "title": "json-server",
+      "author": "Anelyze Dio da Graça",
+      "id": 4
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "Santos"
+  }
+}
